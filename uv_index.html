@@ -9,12 +9,47 @@
         body {
           padding: 25px;
           width: 500px;
-max-width: 95vw;
+          max-width: 95vw;
           box-sizing: border-box;
           margin: auto;
         }
-        </style>
-    </head>
+        header {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 1000;
+            width: 100%; /* Ensures the header takes up the full width */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap; /* Allows the items to wrap to a new line */
+            justify-content: center; /* Centers the navigation items */
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 10px 0px; /* Adds space between the items */
+            border: 1px rgb(242, 236, 236) solid;
+            white-space: nowrap; /* Prevents wrapping of text within each link */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 16px;
+        }
+
+        nav ul li:hover {
+            background-color: #77c8ea; /* Optional: Add a hover effect */
+        }
+
+        section { padding-top: 20px}
+    </style>
+</head>
 <body>
     <!-- Header Section -->
     <header>
@@ -34,7 +69,7 @@ max-width: 95vw;
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" style="background-image: url('img/hero_image_1024x768.png');">
+    <section id="hero"> <!-- style="background-image: url('img/hero_image_1024x768.png');"> -->
         <h1>United Visions Foundation Inc.</h1>
         <p>United Visions is a nonprofit organization created to empower people at every stage of life to hit the 
             restart button and realign their sense of reality, direction, and purpose. Based in Sunnyvale, California, our global lifestyle movement offers content, workshops, 
@@ -82,11 +117,11 @@ max-width: 95vw;
         <div class="program">
             Weekly meditation and yoga Thursday night meetup.
         </div>
-<br>
+        <br>
         <div class="program">
             Monthly community picnic.
         </div>
-<br>
+        <br>
         <div class="program">
             <a href="https://forms.gle/MtVaWStfgP48uyuW9">'I got 99 problems, but protein deficiency aint one'</a> - Community Book Project
         </div>
@@ -129,7 +164,7 @@ max-width: 95vw;
     <section id="volunteer">
         <h2>Volunteer with Us</h2>
         <p>Join one of our events, from the calendar below and explore various ways in which you can support the cause.</p>
-<p><a href="marlis@unitedvisions.org">Send us an email today - marlis@unitedvisions.org</a></p>
+        <p><a href="marlis@unitedvisions.org">Send us an email today - marlis@unitedvisions.org</a></p>
         <!-- <div class="volunteer-role">
             <img src="img/workshop_facilitator_500x300.png" alt="Workshop Facilitator">
             <h3>Workshop Facilitator</h3>
@@ -201,18 +236,9 @@ max-width: 95vw;
         <!-- Physical address and a map link can be added here -->
     </section>
 
-    <!-- Newsletter Signup Section -->
+    <!-- Newsletter Signup Section
     <section id="newsletter">
-        <!-- <h2>Stay Updated</h2>
-        <p>Subscribe to our newsletter for the latest news, updates, and exclusive content.</p> -->
-
-        <!-- Newsletter Signup Form -->
-        <form action="path/to/newsletter_signup" method="post">
-            <!-- <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <button type="submit">Subscribe</button> -->
-        </form>
-    </section>
+    </section> -->
 
     <!-- Footer Section -->
     <footer>
