@@ -1,4 +1,4 @@
-This is the public depository for the United visions foundation website.
+This is the public repository for the United Visions Foundation website.
 
 unitedvisions.org
 
