@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United Visions</title>
+    <!-- Link to CSS stylesheet -->
+    <style>
+        body {
+          padding: 25px;
+          width: 500px;
+          max-width: 95vw;
+          box-sizing: border-box;
+          margin: auto;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 1000;
+            width: 100%; /* Ensures the header takes up the full width */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap; /* Allows the items to wrap to a new line */
+            justify-content: center; /* Centers the navigation items */
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 10px 0px; /* Adds space between the items */
+            border: 1px rgb(242, 236, 236) solid;
+            white-space: nowrap; /* Prevents wrapping of text within each link */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 16px;
+        }
+
+        nav ul li:hover {
+            background-color: #77c8ea; /* Optional: Add a hover effect */
+        }
+
+        section { padding-top: 20px}
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <!-- <li><a href="#programs">Programs</a></li> -->
+                <!-- <li><a href="#impact">Impact</a></li> -->
+                <!-- <li><a href="#donate">Donate</a></li> -->
+                <li><a href="#volunteer">Volunteer</a></li>
+                <!-- <li><a href="#news">News</a></li> -->
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero"> <!-- style="background-image: url('img/hero_image_1024x768.png');"> -->
+        <h1>United Visions Foundation Inc.</h1>
+        <p>United Visions is a nonprofit organization created to empower people at every stage of life to hit the 
+            restart button and realign their sense of reality, direction, and purpose. Based in Sunnyvale, California, our global lifestyle movement offers content, workshops, 
+            and 1:1 coaching to teach various forms of brain programming and meditation to recognize and reset our faulty defaults. Our goal is to apply the art and science of 
+            brain plasticity to help people with the habits and attitudes to live life with joy, ease and success, as well as be able to cope more effectively with whatever 
+            life throws at them. In doing so, we hope to eliminate the plagues of 
+            our times and usher in a new era of peace, love, and unity.</p>
+        <!-- <h1>Empowering communities through sustainable personal development and education</h1>
+        <p>Join us in our mission to make a difference.</p> -->
+     <!--   <button onclick="location.href='#donate'">Donate Now</button> 
+        <button onclick="location.href='#volunteer'">Become a Volunteer</button>-->
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <!-- <p>United Visions was founded in 2000 with a commitment to fostering sustainable community development and education worldwide. Over the years, we have impacted numerous communities through our focused programs, evolving to meet the changing needs of the societies we serve.</p> -->
+        <div class="team-member">
+        <!-- <img src="img/portrait_frazer_300x300.png" alt="Frazer - Founder"> -->
+            <h3>Frazer Kirkman - Founder</h3>
+            <p>As a young man, I had a vision that changed my life forever. After a tragic incident in my family, it hit me that the world does not have to be the way it is right now, that we can help each other be happier, wiser, and more caring.</p>
+
+            <p> I dedicated myself to making the world the way it could be, or as I phrased it at the time, the way it is meant to be. A world where every single person has access to the best training to be happy, to be positive, and to have peace. But more importantly than that, I want to train people with the skills to be the designers of themselves and our communities.</p>
+        
+        </div>
+        <div class="team-member">
+            <!-- <img src="img/portrait_marlis_300x300.png" alt="Marlis - CEO"> -->
+            <h3>Marlis Kirkman - Founder</h3>
+            <p>Marlis firmly believes that people can do better with their brains. She's dedicated to educating everyone about the incredible adaptability of our brains and won't rest until everyone knows. Kind and radical change is her expertise.</p>
+        </div>
+        <div class="team-member">
+            <!-- <img src="img/portrait_abe_300x300.png" alt="Abe - Board Member"> -->
+            <h3>Abe Feinberg - Board Member</h3>
+            <!-- <p>A veteran in non-profit management, Abe leads with a vision to empower through education and sustainable development.</p> -->
+        </div>
+        <!-- <div class="people-who-contributed">
+            <h2>People Who Contributed</h2>
+            <tooltip>Oliver Anderson</tooltip>
+        </div> -->
+    </section>
+
+    <!-- Programs and Services Section -->
+    <section id="programs">
+        <h2>Our Programs</h2>
+        <div class="program">
+            Weekly meditation and yoga Thursday night meetup.
+        </div>
+        <br>
+        <div class="program">
+            Monthly community picnic.
+        </div>
+        <br>
+        <div class="program">
+            <a href="https://forms.gle/MtVaWStfgP48uyuW9">'I got 99 problems, but protein deficiency aint one'</a> - Community Book Project
+        </div>
+    </section>
+
+    <!-- Impact Evidence Section -->
+    <section id="impact">
+        <h2>Our Impact</h2>
+        <div class="impact-item">
+            <!-- <img src="img/empowering_individuals_600x400.png" alt="Empowering Individuals Infographic"> -->
+            <h3>Empowering Individuals</h3>
+            <p>Over 10,000 individuals worldwide have attended our workshops or online trainings.</p>
+        </div>
+        <!-- <div class="impact-item">
+            <img src="img/community_development_600x400.png" alt="Community Development Infographic">
+            <h3>Community Development</h3>
+            <p>Facilitated community workshops, in over 30 communities globally.</p>
+        </div> -->
+    </section>
+
+    <!-- Donation Options Section -->
+    <!-- <section id="donate">
+        <h2>Support Our Cause</h2>
+        <p>Your donation can make a real difference in the lives of individuals and communities.</p>
+        <div class="donation-option">
+            <img src="img/one_time_donation_500x300.png" alt="One-Time Donation">
+            <h3>One-Time Donation</h3>
+            <p>Make a single contribution to support our programs and initiatives.</p>
+            <button onclick="location.href='path/to/donation_page'">Donate Now</button>
+        </div>
+        <div class="donation-option">
+            <img src="img/recurring_donation_500x300.png" alt="Recurring Donation">
+            <h3>Recurring Donation</h3>
+            <p>Become a regular supporter with a monthly, quarterly, or annual contribution.</p>
+            <button onclick="location.href='https://www.patreon.com/unitedvisions'">Become a Recurring Donor on Patreon</button>
+        </div>
+    </section> -->
+
+    <!-- Volunteer Information Section -->
+    <section id="volunteer">
+        <h2>Volunteer with Us</h2>
+        <p>Join one of our events, from the calendar below and explore various ways in which you can support the cause.</p>
+        <p><a href="marlis@unitedvisions.org">Send us an email today - marlis@unitedvisions.org</a></p>
+        <!-- <div class="volunteer-role">
+            <img src="img/workshop_facilitator_500x300.png" alt="Workshop Facilitator">
+            <h3>Workshop Facilitator</h3>
+            <p>Lead and facilitate our personal empowerment workshops.</p>
+        </div>
+        <div class="volunteer-role">
+            <img src="img/event_organizer_500x300.png" alt="Event Organizer">
+            <h3>Event Organizer</h3>
+            <p>Help in organizing and managing community events and fundraisers.</p>
+        </div>
+        <div class="volunteer-role">
+            <img src="img/community_coordinator_500x300.png" alt="Community Coordinator">
+            <h3>Community Coordinator</h3>
+            <p>Coordinate with local communities and assist in implementing our programs on the ground.</p>
+        </div> -->
+
+        <!-- A link or button for volunteer application form can be added here -->
+        <!-- <button onclick="location.href='path/to/volunteer_application_form'">Apply to Volunteer</button> -->
+    </section>
+
+    <!-- News and Updates Section -->
+    <section id="news">
+        <!-- <h2>Latest News and Updates</h2> -->
+
+        <!-- News Item -->
+        <div class="news-item">
+            <!-- <h3>New Skill Development Initiative Launched</h3> -->
+            <!-- <p>We're excited to announce the launch of a new skill development program in three countries...</p> -->
+            <!-- Placeholder for news image or infographic -->
+            <!-- <img src="img/news-image1.jpg" alt="Skill Development Initiative"> -->
+        </div>
+
+        <!-- Additional news items can be added here -->
+    </section>
+
+    <!-- Event Calendar Section -->
+    <section id="events">
+        <h2>Upcoming Events</h2>
+
+        <!-- Event Item -->
+        <!-- <div class="event-item">
+            <h3>Empowerment Workshop</h3>
+            <p>Date: June 15th, 2024. Join us for a workshop focused on personal empowerment techniques.</p>
+            <button onclick="location.href='path/to/event_registration'">Register Now</button> -->
+        </div>
+
+        <iframe src="https://calendar.google.com/calendar/embed?src=56e458c18963cdd7293adccd6ed1ca0a35ba4c412957cb183d630d58b026e1cc%40group.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="95%" height="400" frameborder="0" scrolling="no"></iframe>
+        <!-- Additional event items can be added here -->
+    </section>
+
+    <!-- Contact Information Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need more information, please feel free to contact us.</p>
+
+      
+
+        <div class="contact-method">
+            <h3>Online Presence</h3>
+            <ul>
+                <li><a href="https://www.facebook.com/UnitedVisionaries/">Facebook</a> </li>
+                <li><a href="https://twitter.com/VisionsUnited">Twitter</a> </li>
+                <li><a href="https://www.linkedin.com/company/united-visions">LinkedIn</a> </li>
+                <li><a href="https://www.youtube.com/user/unitedvisionaries/">YouTube</a> </li>
+                <li><a href="https://www.facebook.com/groups/BayAreaTeamAwesome/">San Francisco Bay Area Team Awesome</a></li>
+            </ul>
+        </div>
+
+        <!-- Physical address and a map link can be added here -->
+    </section>
+
+    <!-- Newsletter Signup Section
+    <section id="newsletter">
+    </section> -->
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <!-- <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#donate">Donate</a></li>
+                <li><a href="#volunteer">Volunteer</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li> -->
+            </ul>
+        </div>
+
+        <div class="footer-content">
+            <h3>Contact Information</h3>
+            <p>Email: <a href="mailto:frazer@unitedvisions.org">frazer@unitedvisions.org</a></p>
+            <p>Phone: <a href="tel:+14158672294">+1 415 867 2294</a></p>
+        </div>
+
+        <!-- <div class="footer-content">
+            <h3>Legal</h3>
+            <ul>
+                <li><a href="/privacy_policy">Privacy Policy</a></li>
+                <li><a href="/terms_of_use">Terms of Use</a></li>
+            </ul> -->
+        </div>
+    </footer>
+</body>
+</html>
+
+    <!-- Link to JavaScript -->
+</body>
+</html>
