@@ -50,6 +50,17 @@
         }
 
         section { padding-top: 40px}
+        section#programs { 
+            padding-top: 0px; 
+            transition: all;
+            transition-duration: 300ms;
+        }
+        #aboutImages {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 0px;
+        }
     </style>
 </head>
 <body>
@@ -113,6 +124,15 @@
         </div> -->
     </section>
 
+    <div id="aboutImages" >
+        <div id="aboutImagesLeft" style="width: 100px; height: 100px; left: -100px; ">
+            <img src="img/enlightennmentLeft.jpeg" alt="Enlightenment together" style="width: 100%; height:100%; border-top-left-radius: 100%; border-bottom-left-radius: 100%;">
+        </div>
+        <div id="aboutImagesRight" style="width: 100px; height: 100px;">
+            <img src="img/enlightenmentRight.jpeg" alt="Enlightenment together" style="width: 100%; height:100%; border-bottom-right-radius: 100%; border-top-right-radius: 100%;">
+        </div>
+    </div>
+    
     <!-- Programs and Services Section -->
     <section id="programs">
         <h2>Our Programs</h2>
@@ -270,7 +290,97 @@
             </ul> -->
         </div>
     </footer>
+
+
+    <!-- <div id="debugPanel" style="position: fixed; top: 0; right: 0; background-color: white; padding: 10px; z-index: 1000;">
+        1
+    </div>
+     -->
 </body>
+
+
+<script>
+    // a registtry of scroll functions with keys of divs
+    var scrollFunctions = {};
+
+    // a function to add a scroll function to a div
+    function addScrollFunction(id, func) {
+        scrollFunctions[id] = func;
+    }
+
+    // a function to remove a scroll function from a div
+    function removeScrollFunction(id) {
+        delete scrollFunctions[id];
+    }
+
+    window.onscroll = function() {
+        for (var key in scrollFunctions) {
+            scrollFunctions[key]();
+        }
+        
+    }
+
+    // let showheight = ()=>{
+    //     // find scroll position of bottom of screen
+    //     let bottom = window.scrollY + window.innerHeight;
+    //     document.getElementById("debugPanel").innerHTML = bottom.toFixed(0 );
+    // }
+
+    // addScrollFunction("body", showheight);
+    //     // any div that I click on appends the top and height to the scroll div
+    //     document.addEventListener("click", function(e) {
+        
+    //     document.getElementById("debugPanel").innerHTML = "Top: " + e.target.offsetTop + " Height: " + e.target.offsetHeight;
+    // });
+
+
+    function elementBottom(id) {
+        let el = document.getElementById(id)
+        return el.offsetTop + el.offsetHeight;
+    }
+
+
+    let aboutImages = document.getElementById("aboutImages");
+    let aboutImagesLeft = document.getElementById("aboutImagesLeft");
+    let aboutImagesRight = document.getElementById("aboutImagesRight");
+
+    aboutImagesLeft.style.transform = "translateX(-70vw)";
+    aboutImagesRight.style.transform = "translateX(70vw)";
+
+    let aboutSectionBottom = elementBottom("about");
+
+    function moveAboutImages() {
+        let spread = 70;
+        let aboutImagesHeight = 0;
+        let windowBottom = window.scrollY + window.innerHeight
+        let scrollBottomPositionZoomInStarts = aboutSectionBottom + window.innerHeight*0.1;
+        let scrollBottomPositionZoomInEnds = aboutSectionBottom + window.innerHeight*0.4;
+        
+        let aboutTextWidth = document.querySelector('section').offsetWidth
+        let screenWidth = window.innerWidth;
+        let textPercentage = aboutTextWidth / screenWidth;
+
+        
+        if(windowBottom > scrollBottomPositionZoomInStarts) {
+            let percent = (windowBottom - scrollBottomPositionZoomInStarts) / (scrollBottomPositionZoomInEnds - scrollBottomPositionZoomInStarts);
+            spread = Math.max(0,spread - spread*percent);
+            if(percent > 0.95-textPercentage){
+                let gapExpanderBegins = 0.95-textPercentage;
+                let gapExpanderEnds = 0.95  -textPercentage;
+                let gap = percent - gapExpanderBegins;
+                aboutImagesHeight = Math.min(100, 500*gap);
+            }
+        }
+        
+        aboutImagesLeft.style.transform = "translateX(" + (-spread) + "vw)";
+        aboutImagesRight.style.transform = "translateX(" +  spread + "vw)";
+        aboutImages.style.height = aboutImagesHeight + "px";
+
+    }
+
+    addScrollFunction("about", moveAboutImages);
+
+</script>
 </html>
 
     <!-- Link to JavaScript -->
