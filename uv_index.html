@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>United Visions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://js-na2.hsforms.net/forms/embed/242011260.js" defer></script>
     <!-- Link to CSS stylesheet -->
     <style>
         body {
@@ -12,13 +14,20 @@
             max-width: 95vw;
             box-sizing: border-box;
             margin: auto;
+            background: #fff;
+            color: #0292b7;
+            font-weight: bold;
+            font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        }
+        p {
+            font-weight: normal;
         }
         header {
             position: sticky;
             top: 0;
-            background-color: white;
+            background: linear-gradient(90deg, #00d6c7 0%, #129ae1 100%);
             z-index: 1000;
-            width: 100%; /* Ensures the header takes up the full width */
+            width: 100%;
         }
 
         nav ul {
@@ -26,31 +35,163 @@
             padding: 0;
             margin: 0;
             display: flex;
-            flex-wrap: wrap; /* Allows the items to wrap to a new line */
-            justify-content: center; /* Centers the navigation items */
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
             overflow: hidden;
+            border-bottom: 1.5px solid #00d6c7;
+            border-top: 1.5px solid #00d6c7;
+            background: transparent;
+            min-height: 24px;
         }
 
         nav ul li {
-            margin: 10px 0px; /* Adds space between the items */
-            border: 1px rgb(242, 236, 236) solid;
-            white-space: nowrap; /* Prevents wrapping of text within each link */
+            margin: 1px 0px;
+            border: 1px solid #00d6c7;
+            white-space: nowrap;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: #333;
-            padding: 10px 16px;
+            color: #fff;
+            padding: 2px 8px;
             display: block;
+            font-weight: 600;
+            font-size: 0.98em;
+            letter-spacing: 0.01em;
+            transition: background 0.2s, color 0.2s;
         }
 
         nav ul li:hover {
-            background-color: #77c8ea; /* Optional: Add a hover effect */
+            background: #129ae1; /* Match the open banner color */
+            color: #fff;
         }
 
-        section { padding-top: 20px}
+        section {
+            padding-top: 20px;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            padding: 18px 18px 10px 18px;
+            background: #fcfcfc;
+        }
+        .section-block {
+            margin-bottom: 32px;
+        }
+        .section-block#volunteer-block {
+            font-weight: normal;
+        }
+        .section-block#volunteer-block .section-heading {
+            font-weight: 800;
+        }
+        .section-block#programs-block {
+            font-weight: normal;
+        }
+        .section-block#programs-block .section-heading {
+            font-weight: 800;
+        }
+        .section-heading {
+            font-size: 1.25em;
+            background: linear-gradient(90deg, #00d6c7 0%, #129ae1 100%);
+            color: #fff;
+            border-radius: 10px;
+            padding: 12px 18px 10px 18px;
+            margin-bottom: 10px;
+            margin-top: 16px;
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: block;
+            border: none;
+            letter-spacing: 0.01em;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            transition: background 0.2s, color 0.2s;
+        }
+        .section-block.active .section-heading {
+            background: #129ae1;
+        }
+        details > summary {
+            font-size: 1.45em;
+            background: #00d6c7;
+            color: #fff;
+            border-radius: 30px;
+            padding: 14px 28px 14px 48px;
+            margin-bottom: 12px;
+            margin-top: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            outline: none;
+            border: none;
+            transition: background 0.2s, color 0.2s;
+            display: inline-block;
+            position: relative;
+        }
+        details > summary::before {
+            content: '\25B6';
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%) rotate(0deg);
+            font-size: 1.1em;
+            transition: transform 0.25s cubic-bezier(.4,2,.6,1), color 0.2s;
+            color: #fff;
+        }
+        details[open] > summary::before {
+            transform: translateY(-50%) rotate(90deg);
+        }
+        details[open] > summary {
+            background: #129ae1;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        .contact-method ul li a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .contact-method .icon {
+            width: 1.3em;
+            height: 1.3em;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .contact-method ul {
+            display: flex;
+            flex-direction: row;
+            gap: 18px;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0 0 18px 0;
+        }
     </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Enhanced nav behavior
+        document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+          link.addEventListener('click', function(e) {
+            const hash = this.getAttribute('href');
+            const section = document.querySelector(hash);
+            if (!section) return;
+            // Find the parent .section-block for this section
+            const block = section.closest('.section-block');
+            const heading = block ? block.querySelector('.section-heading') : null;
+            if (heading) {
+              const nav = document.querySelector('nav');
+              const navHeight = nav ? nav.offsetHeight : 0;
+              const yOffset = -navHeight - 8;
+              const y = heading.getBoundingClientRect().top + window.pageYOffset + yOffset;
+              window.scrollTo({ top: y, behavior: 'smooth' });
+              e.preventDefault();
+            } else {
+              section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+      });
+    </script>
 </head>
 <body>
     <!-- Header Section -->
@@ -71,8 +212,9 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="hero"> <!-- style="background-image: url('img/hero_image_1024x768.png');"> -->
-        <h1>United Visions Foundation Inc.</h1>
+    <div class='section-block'>
+      <div class='section-heading'>Home</div>
+      <section id="hero"> <!-- style="background-image: url('img/hero_image_1024x768.png');"> -->
         <p>United Visions is a nonprofit organization created to empower people at every stage of life to hit the 
             restart button and realign their sense of reality, direction, and purpose. Based in Sunnyvale, California, our global lifestyle movement offers content, workshops, 
             and 1:1 coaching to teach various forms of brain programming and meditation to recognize and reset our faulty defaults. Our goal is to apply the art and science of 
@@ -83,12 +225,13 @@
         <p>Join us in our mission to make a difference.</p> -->
      <!--   <button onclick="location.href='#donate'">Donate Now</button> 
         <button onclick="location.href='#volunteer'">Become a Volunteer</button>-->
-    </section>
+      </section>
+    </div>
 
     <!-- About Us Section -->
-    <section id="about">
-        <h2>About Us</h2>
-        <!-- <p>United Visions was founded in 2000 with a commitment to fostering sustainable community development and education worldwide. Over the years, we have impacted numerous communities through our focused programs, evolving to meet the changing needs of the societies we serve.</p> -->
+    <div class='section-block'>
+      <div class='section-heading'>About Us</div>
+      <section id="about">
         <div class="team-member">
         <!-- <img src="img/portrait_frazer_300x300.png" alt="Frazer - Founder"> -->
             <h3>Frazer Kirkman - Founder</h3>
@@ -111,11 +254,13 @@
             <h2>People Who Contributed</h2>
             <tooltip>Oliver Anderson</tooltip>
         </div> -->
-    </section>
+      </section>
+    </div>
 
     <!-- Programs and Services Section -->
-    <section id="programs">
-        <h2>Our Programs</h2>
+    <div class='section-block' id='programs-block'>
+      <div class='section-heading'>Our Programs</div>
+      <section id="programs">
         
         <div class="program">
             Monthly community picnic.
@@ -126,11 +271,13 @@
         <div class="program">
             <a href="https://forms.gle/MtVaWStfgP48uyuW9">'I got 99 problems, but protein deficiency aint one'</a> - Community Book Project
         </div>
-    </section>
+      </section>
+    </div>
 
     <!-- Impact Evidence Section -->
-    <section id="impact">
-        <h2>Our Impact</h2>
+    <div class='section-block'>
+      <div class='section-heading'>Our Impact</div>
+      <section id="impact">
         <div class="impact-item">
             <!-- <img src="img/empowering_individuals_600x400.png" alt="Empowering Individuals Infographic"> -->
             <h3>Empowering Individuals</h3>
@@ -141,7 +288,68 @@
             <h3>Community Development</h3>
             <p>Facilitated community workshops, in over 30 communities globally.</p>
         </div> -->
-    </section>
+      </section>
+    </div>
+
+    <!-- Volunteer Information Section -->
+    <div class='section-block' id='volunteer-block'>
+      <div class='section-heading'>Volunteer with Us</div>
+      <section id="volunteer">
+        <p>Join one of our events, from the calendar below and explore various ways in which you can support the cause.</p>
+        <p><a href="marlis@unitedvisions.org">Send us an email today - marlis@unitedvisions.org</a></p>
+        <style>
+          .section {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          }
+          .social-link {
+            display: inline-block;
+            margin-left: 10px;
+            padding: 2px 10px;
+            background: #e9f5ff;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #1877f2;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: background 0.2s;
+          }
+          .social-link:hover {
+            background: #b3e0ff;
+            color: #0a3d62;
+          }
+        </style>
+        <div class="section">
+          <h2>Volunteer Opportunities</h2>
+          <h3>3 Minutes</h3>
+          <ul>
+            <li>Follow us on X and make a Retweet <a class="social-link" href="https://x.com/VisionsUnited" target="_blank">X</a></li>
+            <li>Follow us on Instagram and comment on your favorite post <a class="social-link" href="https://www.instagram.com/unitedvisionsfoundation/" target="_blank">Instagram</a></li>
+            <li>Join our Facebook community to connect with amazing people <a class="social-link" href="https://www.facebook.com/UnitedVisionaries/" target="_blank">Facebook</a></li>
+            <li>Subscribe to our YouTube Channel for awesome content <a class="social-link" href="https://www.youtube.com/user/unitedvisionaries/" target="_blank">YouTube</a></li>
+            <li><a href="#contact" style="color: #0292b7; text-decoration: none;">Join our <span style="text-decoration: underline;">mailing list</span> to stay informed about our workshops and events</a> <em></em></li>
+            <li>Tag a friend after following and commenting—someone who might benefit from a reset</li>
+          </ul>
+          <h3>5–10 Minutes</h3>
+          <ul>
+            <li>Watch our meditation video clip <em>(to be created, titled "Reflect to Reset")</em></li>
+            <li>Tell us which topics you'd like in future workshops <em>(form link to be added)</em></li>
+            <li>Share your "Reset Moment" on social media using hashtag <strong>#UnitedReset</strong> and tag us</li>
+          </ul>
+          <h3>15–30 Minutes</h3>
+          <ul>
+            <li>Attend our workshop to experience deep peace</li>
+            <li>Submit a workshop reflection (written or video) to be featured on our platforms</li>
+            <li>Earn “Reset Champion” recognition—workshop credit and monthly spotlight</li>
+          </ul>
+          <p><strong>Note:</strong> We may offer a free workshop for completing all 3-minute tasks or any 10 total volunteer opportunities.</p>
+        </div>
+       
+      </section>
+    </div>
 
     <!-- Donation Options Section -->
     <!-- <section id="donate">
@@ -161,34 +369,10 @@
         </div>
     </section> -->
 
-    <!-- Volunteer Information Section -->
-    <section id="volunteer">
-        <h2>Volunteer with Us</h2>
-        <p>Join one of our events, from the calendar below and explore various ways in which you can support the cause.</p>
-        <p><a href="marlis@unitedvisions.org">Send us an email today - marlis@unitedvisions.org</a></p>
-        <!-- <div class="volunteer-role">
-            <img src="img/workshop_facilitator_500x300.png" alt="Workshop Facilitator">
-            <h3>Workshop Facilitator</h3>
-            <p>Lead and facilitate our personal empowerment workshops.</p>
-        </div>
-        <div class="volunteer-role">
-            <img src="img/event_organizer_500x300.png" alt="Event Organizer">
-            <h3>Event Organizer</h3>
-            <p>Help in organizing and managing community events and fundraisers.</p>
-        </div>
-        <div class="volunteer-role">
-            <img src="img/community_coordinator_500x300.png" alt="Community Coordinator">
-            <h3>Community Coordinator</h3>
-            <p>Coordinate with local communities and assist in implementing our programs on the ground.</p>
-        </div> -->
-
-        <!-- A link or button for volunteer application form can be added here -->
-        <!-- <button onclick="location.href='path/to/volunteer_application_form'">Apply to Volunteer</button> -->
-    </section>
-
     <!-- News and Updates Section -->
-    <section id="news">
-        <!-- <h2>Latest News and Updates</h2> -->
+    <div class='section-block' style="display:none;">
+      <div class='section-heading'>News and Updates</div>
+      <section id="news">
 
         <!-- News Item -->
         <div class="news-item">
@@ -199,43 +383,51 @@
         </div>
 
         <!-- Additional news items can be added here -->
-    </section>
+      </section>
+    </div>
 
     <!-- Event Calendar Section -->
-    <section id="events">
-        <h2>Upcoming Events</h2>
-
-        <!-- Event Item -->
-        <!-- <div class="event-item">
-            <h3>Empowerment Workshop</h3>
-            <p>Date: June 15th, 2024. Join us for a workshop focused on personal empowerment techniques.</p>
-            <button onclick="location.href='path/to/event_registration'">Register Now</button> -->
-        </div>
-
+    <div class='section-block'>
+      <div class='section-heading'>Upcoming Events</div>
+      <section id="events">
         <iframe src="https://calendar.google.com/calendar/embed?src=56e458c18963cdd7293adccd6ed1ca0a35ba4c412957cb183d630d58b026e1cc%40group.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="95%" height="400" frameborder="0" scrolling="no"></iframe>
         <!-- Additional event items can be added here -->
-    </section>
+      </section>
+    </div>
 
     <!-- Contact Information Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
+    <div class='section-block'>
+      <div class='section-heading'>Contact Us</div>
+      <section id="contact">
         <p>If you have any questions or need more information, please feel free to contact us.</p>
 
       
 
         <div class="contact-method">
-            <h3>Online Presence</h3>
             <ul>
-                <li><a href="https://www.facebook.com/UnitedVisionaries/">Facebook</a> </li>
-                <li><a href="https://twitter.com/VisionsUnited">Twitter</a> </li>
-                <li><a href="https://www.linkedin.com/company/united-visions">LinkedIn</a> </li>
-                <li><a href="https://www.youtube.com/user/unitedvisionaries/">YouTube</a> </li>
-                <li><a href="https://www.facebook.com/groups/BayAreaTeamAwesome/">San Francisco Bay Area Team Awesome</a></li>
+                <li><a href="https://www.facebook.com/UnitedVisionaries/"><span class="icon"><!-- Facebook SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1877F3"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg></span></a></li>
+                <li><a href="https://x.com/VisionsUnited"><span class="icon"><!-- X SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" fill="#000"><path d="M1200 21.3L741.7 614.7 1200 1205.7h-272.6l-357.2-438.7-357.2 438.7H0l462.7-591-462.7-593.4h272.6l357.2 438.7L927.4 21.3H1200z"/></svg></span></a></li>
+                <li><a href="https://www.instagram.com/unitedvisionsfoundation/"><span class="icon"><!-- Instagram SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#E4405F"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608C4.515 2.567 5.782 2.295 7.148 2.233 8.414 2.175 8.794 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.363 3.678 1.344c-.98.98-1.213 2.092-1.272 3.373C2.013 5.668 2 6.077 2 12c0 5.923.013 6.332.072 7.613.059 1.281.292 2.393 1.272 3.373.98.98 2.092 1.213 3.373 1.272C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.281-.059 2.393-.292 3.373-1.272.98-.98 1.213-2.092 1.272-3.373.059-1.281.072-1.69.072-7.613 0-5.923-.013-6.332-.072-7.613-.059-1.281-.292-2.393-1.272-3.373-.98-.98-2.092-1.213-3.373-1.272C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm7.2-10.406a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></span></a></li>
+                <li><a href="https://www.linkedin.com/company/united-visions"><span class="icon"><!-- LinkedIn SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5"><path d="M20.447 20.452h-3.554v-5.569c0-1.327-.027-3.037-1.849-3.037-1.851 0-2.132 1.445-2.132 2.939v5.667H9.358V9h3.414v1.561h.049c.476-.899 1.637-1.849 3.37-1.849 3.602 0 4.267 2.368 4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zm1.777 13.019H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.549C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.271V1.723C24 .771 23.2 0 22.225 0z"/></svg></span></a></li>
+                <li><a href="https://www.youtube.com/user/unitedvisionaries/"><span class="icon"><!-- YouTube SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.112-2.112C19.458 3.5 12 3.5 12 3.5s-7.458 0-9.386.574A2.994 2.994 0 0 0 .502 6.186C0 8.114 0 12 0 12s0 3.886.502 5.814a2.994 2.994 0 0 0 2.112 2.112C4.542 20.5 12 20.5 12 20.5s7.458 0 9.386-.574a2.994 2.994 0 0 0 2.112-2.112C24 15.886 24 12 24 12s0-3.886-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span></a></li>
+                <li><a href="https://www.facebook.com/groups/BayAreaTeamAwesome/"><span class="icon"><!-- Group SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#00d6c7"><path d="M16 11c1.654 0 3-1.346 3-3s-1.346-3-3-3-3 1.346-3 3 1.346 3 3 3zm-8 0c1.654 0 3-1.346 3-3s-1.346-3-3-3-3 1.346-3 3 1.346 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05C15.69 13.36 17 14.28 17 15.5V20h7v-3.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span></a></li>
             </ul>
         </div>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:frazer@unitedvisions.org">frazer@unitedvisions.org</a></p>
+            <p>Phone: <a href="tel:+14158672294">+1 415 867 2294</a></p>
+        </div>
+        <div class="hs-form-frame" data-region="na2" data-form-id="1c33a8f1-4bfe-451e-a17b-0612e4147214" data-portal-id="242011260"></div>
 
         <!-- Physical address and a map link can be added here -->
-    </section>
+      </section>
+    </div>
 
     <!-- Newsletter Signup Section
     <section id="newsletter">
@@ -256,11 +448,11 @@
             </ul>
         </div>
 
-        <div class="footer-content">
+        <!-- <div class="footer-content">
             <h3>Contact Information</h3>
             <p>Email: <a href="mailto:frazer@unitedvisions.org">frazer@unitedvisions.org</a></p>
             <p>Phone: <a href="tel:+14158672294">+1 415 867 2294</a></p>
-        </div>
+        </div> -->
 
         <!-- <div class="footer-content">
             <h3>Legal</h3>
